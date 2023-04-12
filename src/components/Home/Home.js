@@ -33,7 +33,7 @@ class Home extends Component{
 
     _clicked(){
         //change the url to match the url for the country route
-        window.location.href = `/country/${this.state.chosenCountry}`;
+        window.location.href = `/result/${this.state.chosenCountry}`;
     }
 
     handleCountryChange= (event) => {
