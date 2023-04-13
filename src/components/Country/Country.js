@@ -11,19 +11,12 @@ function Country() {
     useEffect(()=>{
         const  fetchData = async () => {
             try {
-              const ConfirmedResponse = await fetch(`https://api.covid19api.com/country/${params.name}/status/confirmed?from=2020-10-31T00:00:00Z&to=2020-10-31T23:00:00Z`);
-              const Confirmedjson = await ConfirmedResponse.json();
-              setConfirmed(Confirmedjson.Cases);
-              console.log("confirmed "+Confirmedjson.Cases);
-              const RecoveredResponse = await fetch(`https://api.covid19api.com/country/${params.name}/status/recovered?from=2020-10-31T00:00:00Z&to=2020-10-31T23:00:00Z`);
-              const Recoveredjson = await RecoveredResponse.json();
-              setRecovered(Recoveredjson.Cases);
-              console.log("recovered "+Recoveredjson.Cases);
-              const DeathsResponse = await fetch(`https://api.covid19api.com/country/${params.name}/status/recovered?from=2020-10-31T00:00:00Z&to=2020-10-31T23:00:00Z`);
-              const Deathsjson = await DeathsResponse.json();
-              setDeaths(Deathsjson.Cases);
-              console.log("recovered "+Deathsjson.Cases);
-
+              const response = await fetch(`https://api.covid19api.com/country/${params.name}?from=2020-10-31T00:00:00Z&to=2020-10-31T23:00:00Z`);
+              const DataJSON = await response.json();
+              console.log(DataJSON);
+              setConfirmed(DataJSON[0].Confirmed);
+              setRecovered(DataJSON[0].Recovered);
+              setDeaths(DataJSON[0].Deaths);
             } catch (error) {
               console.log("error", error);
             }

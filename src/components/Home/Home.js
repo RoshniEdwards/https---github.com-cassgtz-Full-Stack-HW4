@@ -26,7 +26,7 @@ class Home extends Component{
                 countriesList.push(countryPair);
             });
             this.setState({
-                countries: countriesList
+                countries: countriesList.sort()
             })
         });
     }
