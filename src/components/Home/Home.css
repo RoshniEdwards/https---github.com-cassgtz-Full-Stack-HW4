@@ -1,6 +1,8 @@
 .title {
     background-color: #282c34;
     background-image: url("https://th.bing.com/th/id/R.348a6aa0bfdd3ab40598d31e95e76c3e?rik=Yzen919ra93TIQ&pid=ImgRaw&r=0");
+    background-position: 0% 10%;
+    background-repeat: no-repeat;
     width: 100%;
     min-height: 100vh;
     display: flex;
