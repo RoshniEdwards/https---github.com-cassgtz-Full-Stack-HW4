@@ -11,12 +11,27 @@ function Country() {
     useEffect(()=>{
         const  fetchData = async () => {
             try {
+              /*
               const response = await fetch(`https://api.covid19api.com/country/${params.name}?from=2020-10-31T00:00:00Z&to=2020-10-31T23:00:00Z`);
-              const DataJSON = await response.json();
+              const DataJSON = await response.json().then(data => {
+                console.log("response: "+data);
+              setConfirmed(data[0].Confirmed);
+              setRecovered(data[0].Recovered);
+              setDeaths(data[0].Deaths);
+              });
               console.log(DataJSON);
-              setConfirmed(DataJSON[0].Confirmed);
-              setRecovered(DataJSON[0].Recovered);
-              setDeaths(DataJSON[0].Deaths);
+              console.log(confirmed);
+              console.log(recovered);
+              console.log(deaths);*/
+
+              fetch(`https://api.covid19api.com/country/${params.name}?from=2020-10-31T00:00:00Z&to=2020-10-31T23:00:00Z`)
+              .then(response => response.json())
+              .then(data => {
+                console.log(data);
+                setConfirmed(data[0].Confirmed);
+                setRecovered(data[0].Recovered);
+                setDeaths(data[0].Deaths);
+              });
             } catch (error) {
               console.log("error", error);
             }
